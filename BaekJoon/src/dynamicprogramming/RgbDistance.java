@@ -6,6 +6,9 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class RgbDistance {
+	/**
+	 * 백준 1149 RGB거리 (https://www.acmicpc.net/problem/1149)
+	 */
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		
 		//집 n개
