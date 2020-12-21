@@ -1,14 +1,11 @@
-package dynamicprogramming;
+package practice;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class BuyCard2 {
-	/**
-	 * 백준 16194 카드 구매하기 2 (https://www.acmicpc.net/problem/16194)
-	 */
+public class BigDecreasePartProgression {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -19,27 +16,26 @@ public class BuyCard2 {
 		int[] dp = new int[n+1];
 		
 		StringTokenizer st = new StringTokenizer(reader.readLine());
-		
 		for (int i=1; i<=n; i++) {
 			map[i] = Integer.parseInt(st.nextToken());
 		}
 		
-		//점화식
-		//dp[i] = min(dp[i], dp[i-j] + map[j])
-		
+		int result = 0;
 		for (int i=1; i<=n; i++) {
-			dp[i] = map[i];
+			dp[i] = 1;
 			for (int j=1; j<i; j++) {
-				if (dp[i] > dp[i-j] + map[j]) {
-					dp[i] = dp[i-j] + map[j];
+				if (map[i] < map[j]) {
+					dp[i] = Math.max(dp[i], dp[j] + 1);
 				}
 			}
+			result = Math.max(result, dp[i]);
 		}
 		
-		System.out.println(dp[n]);
+		System.out.println(result);
 		
 	}//main
 }
+
 
 
 

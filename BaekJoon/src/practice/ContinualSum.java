@@ -1,14 +1,11 @@
-package dynamicprogramming;
+package practice;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class BuyCard2 {
-	/**
-	 * 백준 16194 카드 구매하기 2 (https://www.acmicpc.net/problem/16194)
-	 */
+public class ContinualSum {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -16,36 +13,30 @@ public class BuyCard2 {
 		int n = Integer.parseInt(reader.readLine());
 		
 		int[] map = new int[n+1];
-		int[] dp = new int[n+1];
 		
 		StringTokenizer st = new StringTokenizer(reader.readLine());
-		
 		for (int i=1; i<=n; i++) {
 			map[i] = Integer.parseInt(st.nextToken());
 		}
-		
-		//점화식
-		//dp[i] = min(dp[i], dp[i-j] + map[j])
+
+		//각 자리의 최대합
+		int[] dp = new int[n+1];
 		
 		for (int i=1; i<=n; i++) {
 			dp[i] = map[i];
-			for (int j=1; j<i; j++) {
-				if (dp[i] > dp[i-j] + map[j]) {
-					dp[i] = dp[i-j] + map[j];
-				}
+			if (dp[i] < dp[i-1] + map[i]) {
+				dp[i] = dp[i-1] + map[i];
 			}
 		}
 		
-		System.out.println(dp[n]);
+		int result = Integer.MIN_VALUE;
+		for (int i=1; i<=n; i++) {
+			result = Math.max(result, dp[i]);
+		}
+		System.out.println(result);
 		
 	}//main
 }
-
-
-
-
-
-
 
 
 

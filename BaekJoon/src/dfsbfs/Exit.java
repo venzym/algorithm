@@ -7,6 +7,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Exit {
+	/**
+	 * 백준 3055 탈출 (https://www.acmicpc.net/problem/3055)
+	 */
 	private static int r, c;
 	private static char[][] map; // 고슴도치, 물 이동시 변경
 	private static char[][] temp; // 입력한 값 그대로 보관
@@ -14,7 +17,6 @@ public class Exit {
 	private static boolean[][] visit;
 
 	private static Queue<Gosom> gosom = new LinkedList<Gosom>();
-	// private static Queue<Water> water = new LinkedList<Water>();
 
 	private static int[] dx = { 0, 1, 0, -1 };
 	private static int[] dy = { 1, 0, -1, 0 };
@@ -156,15 +158,6 @@ public class Exit {
 
 				}
 			}
-
-
-//			for (int i = 1; i <= r; i++) {
-//				for (int j = 1; j <= c; j++) {
-//					System.out.print(time[i][j] + " ");
-//				}
-//				System.out.println();
-//			}
-//			System.out.println("---------------------");
 
 		}
 

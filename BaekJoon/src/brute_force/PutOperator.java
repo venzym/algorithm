@@ -65,14 +65,14 @@ public class PutOperator {
 			operList[i] = operator.get(i-1);
 		}
 		
-		dfs(1,0);
+		dfs(0);
 		
 		System.out.println(max);
 		System.out.println(min);
 		
 	}
 
-	private static void dfs(int start, int count) {
+	private static void dfs(int count) {
 		
 		if (count == n-1) {
 			//연산자 조합 가져온 것들로 연산
@@ -80,11 +80,11 @@ public class PutOperator {
 			
 		} else {
 			
-			for (int i=1; i<=n-1; i++) {
+			for (int i=1; i<n; i++) {
 				if (!visit[i]) {
 					visit[i] = true;
 					selectOper.add(operList[i]);
-					dfs(i+1,count+1);
+					dfs(count+1);
 					selectOper.remove(selectOper.size()-1);
 					visit[i] = false;
 				}
@@ -101,8 +101,8 @@ public class PutOperator {
 			num = math(num, numList[i+1], selectOper.get(i-1));
 		}
 
-		max = Math.max(max, num);
-		min = Math.min(min, num);
+		max = Math.max(max, num); //최댓값
+		min = Math.min(min, num); //최솟값
 		
 	}//calculate
 

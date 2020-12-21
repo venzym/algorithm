@@ -148,15 +148,6 @@ public class ToothedWheel {
 				}
 			}
 			
-//			
-//			System.out.println("-----------------");
-//			for (int i=1; i<=4; i++) {
-//				for (int j=1; j<=8; j++) {
-//					System.out.print(wheel[i][j]);
-//				}
-//				System.out.println();
-//			}
-//			System.out.println("-----------------");
 		}
 		
 		int sum = 0;
@@ -180,7 +171,7 @@ public class ToothedWheel {
 	private static int changeDirection(int direction) {
 		direction = direction == 1 ? -1 : 1;
 		return direction;
-	}
+	}//changeDirection
 
 	private static void rotation(int direction, int[][] wheel, int wheelNum) {
 		if (direction == 1) {
