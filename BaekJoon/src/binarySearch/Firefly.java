@@ -52,6 +52,9 @@ public class Firefly {
 
             int destroy = 0;//파괴 개수
 
+            //h : 7
+            System.out.println(down_sum[h] + " " + down_sum[i-1]);
+            System.out.println(up_sum[h] + " " + up_sum[h-1]);
             destroy += down_sum[h] - down_sum[i-1];//h-down[i]높이
             destroy += up_sum[h] - up_sum[h-i];
 
